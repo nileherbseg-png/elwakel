@@ -1,0 +1,1508 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الوكيل – خدمات المكيفات | إصلاح وتركيب في نفس اليوم</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --blue-deep: #0a2540;
+        --blue-mid: #1a4a8a;
+        --blue-bright: #1e6fd9;
+        --blue-light: #e8f2ff;
+        --green-wa: #25d366;
+        --green-dark: #128c7e;
+        --gold: #f5a623;
+        --red-hot: #e53935;
+        --white: #ffffff;
+        --gray-light: #f7f9fc;
+        --gray-text: #4a5568;
+        --shadow-lg: 0 20px 60px rgba(10, 37, 64, 0.18);
+        --shadow-btn: 0 8px 30px rgba(30, 111, 217, 0.4);
+        --radius: 16px;
+        --radius-lg: 24px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Cairo", "Tajawal", sans-serif;
+        background: var(--white);
+        color: var(--blue-deep);
+        overflow-x: hidden;
+        direction: rtl;
+      }
+
+      /* ===== FLOATING WHATSAPP ===== */
+      .wa-float {
+        position: fixed;
+        bottom: 24px;
+        left: 24px;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--green-wa);
+        color: white;
+        padding: 14px 22px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 8px 32px rgba(37, 211, 102, 0.5);
+        animation: pulse-wa 2s infinite;
+        transition: transform 0.2s;
+      }
+      .wa-float:hover {
+        transform: scale(1.06);
+      }
+      .wa-float svg {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+      }
+
+      @keyframes pulse-wa {
+        0%,
+        100% {
+          box-shadow: 0 8px 32px rgba(37, 211, 102, 0.5);
+        }
+        50% {
+          box-shadow: 0 8px 48px rgba(37, 211, 102, 0.8);
+        }
+      }
+
+      /* ===== STICKY HEADER ===== */
+      .sticky-bar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background: var(--blue-deep);
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+      }
+      .sticky-logo {
+        color: white;
+        font-size: 20px;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .sticky-logo span {
+        color: var(--gold);
+      }
+      .sticky-actions {
+        display: flex;
+        gap: 10px;
+      }
+      .btn-call-sticky {
+        background: var(--blue-bright);
+        color: white;
+        padding: 8px 18px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: background 0.2s;
+      }
+      .btn-call-sticky:hover {
+        background: #1558b8;
+      }
+      .btn-wa-sticky {
+        background: var(--green-wa);
+        color: white;
+        padding: 8px 18px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: background 0.2s;
+      }
+      .btn-wa-sticky:hover {
+        background: var(--green-dark);
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        min-height: 100vh;
+        background: linear-gradient(
+          145deg,
+          var(--blue-deep) 0%,
+          var(--blue-mid) 60%,
+          #1a6fd8 100%
+        );
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 20px 60px;
+        text-align: center;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -200px;
+        right: -200px;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.05) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: -100px;
+        left: -100px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(30, 111, 217, 0.3) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: #b8d9ff;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 28px;
+        backdrop-filter: blur(10px);
+        animation: fadeDown 0.6s ease;
+      }
+
+      .hero-brand {
+        font-size: clamp(36px, 8vw, 80px);
+        font-weight: 900;
+        color: white;
+        line-height: 1.1;
+        margin-bottom: 20px;
+        animation: fadeDown 0.7s ease;
+      }
+      .hero-brand .gold {
+        color: var(--gold);
+      }
+
+      .hero-sub {
+        font-size: clamp(16px, 3vw, 22px);
+        color: rgba(255, 255, 255, 0.82);
+        max-width: 600px;
+        line-height: 1.7;
+        margin-bottom: 40px;
+        animation: fadeDown 0.9s ease;
+      }
+
+      .trust-badges {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 44px;
+        animation: fadeDown 1s ease;
+      }
+      .badge-item {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        backdrop-filter: blur(8px);
+      }
+      .badge-item .icon {
+        font-size: 16px;
+      }
+
+      .hero-ctas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+        margin-bottom: 28px;
+        animation: fadeDown 1.1s ease;
+      }
+
+      .btn-primary {
+        background: var(--gold);
+        color: var(--blue-deep);
+        padding: 18px 36px;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: 900;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 8px 30px rgba(245, 166, 35, 0.5);
+        transition: all 0.2s;
+        border: none;
+        cursor: pointer;
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px rgba(245, 166, 35, 0.7);
+      }
+
+      .btn-wa {
+        background: var(--green-wa);
+        color: white;
+        padding: 18px 36px;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: 900;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+        transition: all 0.2s;
+      }
+      .btn-wa:hover {
+        transform: translateY(-2px);
+        background: var(--green-dark);
+      }
+
+      .urgency-line {
+        color: #ffcc44;
+        font-size: 14px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        animation: fadeDown 1.2s ease;
+      }
+      .urgency-dot {
+        width: 8px;
+        height: 8px;
+        background: #ff4444;
+        border-radius: 50%;
+        animation: blink 1s infinite;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.2;
+        }
+      }
+
+      @keyframes fadeDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ===== SECTIONS COMMON ===== */
+      section {
+        padding: 80px 20px;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .section-title {
+        font-size: clamp(26px, 5vw, 42px);
+        font-weight: 900;
+        color: var(--blue-deep);
+        text-align: center;
+        margin-bottom: 14px;
+      }
+      .section-sub {
+        text-align: center;
+        color: var(--gray-text);
+        font-size: 17px;
+        margin-bottom: 50px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.7;
+      }
+      .accent {
+        color: var(--blue-bright);
+      }
+
+      /* ===== PROBLEMS ===== */
+      .problems-section {
+        background: var(--gray-light);
+      }
+      .problems-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+      .problem-card {
+        background: white;
+        border-radius: var(--radius);
+        padding: 28px;
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        box-shadow: 0 4px 20px rgba(10, 37, 64, 0.07);
+        border-right: 4px solid var(--blue-bright);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .problem-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(10, 37, 64, 0.12);
+      }
+      .problem-icon {
+        font-size: 36px;
+        flex-shrink: 0;
+      }
+      .problem-text {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--blue-deep);
+        line-height: 1.5;
+      }
+      .solve-banner {
+        background: linear-gradient(
+          135deg,
+          var(--blue-bright),
+          var(--blue-deep)
+        );
+        color: white;
+        text-align: center;
+        padding: 24px;
+        border-radius: var(--radius-lg);
+        font-size: 22px;
+        font-weight: 900;
+      }
+
+      /* ===== SERVICES ===== */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+      }
+      .service-card {
+        background: white;
+        border-radius: var(--radius-lg);
+        padding: 36px 28px;
+        text-align: center;
+        box-shadow: 0 6px 30px rgba(10, 37, 64, 0.08);
+        border-top: 4px solid transparent;
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--blue-bright), var(--blue-mid));
+      }
+      .service-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lg);
+      }
+      .service-emoji {
+        font-size: 48px;
+        margin-bottom: 16px;
+        display: block;
+      }
+      .service-name {
+        font-size: 20px;
+        font-weight: 900;
+        color: var(--blue-deep);
+        margin-bottom: 10px;
+      }
+      .service-benefit {
+        font-size: 15px;
+        color: var(--gray-text);
+        line-height: 1.6;
+      }
+      .service-cta-link {
+        display: inline-block;
+        margin-top: 18px;
+        color: var(--blue-bright);
+        font-weight: 700;
+        font-size: 15px;
+        text-decoration: none;
+        border-bottom: 2px solid var(--blue-bright);
+        padding-bottom: 2px;
+      }
+
+      /* ===== TRUST ===== */
+      .trust-section {
+        background: var(--blue-deep);
+        color: white;
+      }
+      .trust-section .section-title {
+        color: white;
+      }
+      .trust-section .section-sub {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 24px;
+      }
+      .trust-item {
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: var(--radius);
+        padding: 32px 24px;
+        text-align: center;
+        transition: background 0.2s;
+      }
+      .trust-item:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+      .trust-number {
+        font-size: 48px;
+        font-weight: 900;
+        color: var(--gold);
+        margin-bottom: 8px;
+      }
+      .trust-label {
+        font-size: 16px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      /* ===== TESTIMONIALS ===== */
+      .testimonials-section {
+        background: var(--gray-light);
+      }
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+      }
+      .testimonial-card {
+        background: white;
+        border-radius: var(--radius-lg);
+        padding: 32px;
+        box-shadow: 0 6px 24px rgba(10, 37, 64, 0.08);
+        position: relative;
+      }
+      .testimonial-card::before {
+        content: '"';
+        position: absolute;
+        top: -10px;
+        right: 20px;
+        font-size: 80px;
+        color: var(--blue-light);
+        font-family: serif;
+        line-height: 1;
+      }
+      .stars {
+        color: #f5a623;
+        font-size: 20px;
+        margin-bottom: 14px;
+      }
+      .testimonial-text {
+        font-size: 16px;
+        color: var(--blue-deep);
+        line-height: 1.7;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .author-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--blue-bright),
+          var(--blue-mid)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 900;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .author-name {
+        font-weight: 900;
+        font-size: 15px;
+        color: var(--blue-deep);
+      }
+      .author-city {
+        font-size: 13px;
+        color: var(--gray-text);
+      }
+
+      /* ===== OFFER SECTION ===== */
+      .offer-section {
+        background: linear-gradient(135deg, #fff9e6, #fffdf0);
+        border-top: 3px solid var(--gold);
+        border-bottom: 3px solid var(--gold);
+      }
+      .offer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+        margin-bottom: 44px;
+      }
+      .offer-card {
+        background: white;
+        border-radius: var(--radius);
+        padding: 30px 24px;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(245, 166, 35, 0.15);
+        border: 2px solid var(--gold);
+      }
+      .offer-icon {
+        font-size: 40px;
+        margin-bottom: 14px;
+        display: block;
+      }
+      .offer-title {
+        font-size: 20px;
+        font-weight: 900;
+        color: var(--blue-deep);
+        margin-bottom: 8px;
+      }
+      .offer-desc {
+        font-size: 15px;
+        color: var(--gray-text);
+      }
+      .offer-highlight {
+        color: var(--red-hot);
+        font-weight: 800;
+        font-size: 17px;
+      }
+
+      .countdown-bar {
+        background: var(--red-hot);
+        color: white;
+        text-align: center;
+        padding: 16px;
+        border-radius: var(--radius);
+        font-size: 17px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 36px;
+      }
+      .countdown-pulse {
+        animation: blink 0.7s infinite;
+      }
+
+      /* ===== HOW IT WORKS ===== */
+      .how-section {
+        background: white;
+      }
+      .steps-flow {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .step-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 28px 0;
+        border-bottom: 1px solid var(--blue-light);
+        position: relative;
+      }
+      .step-item:last-child {
+        border-bottom: none;
+      }
+      .step-number {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--blue-bright),
+          var(--blue-mid)
+        );
+        color: white;
+        font-size: 22px;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 0 4px 16px rgba(30, 111, 217, 0.3);
+      }
+      .step-content {
+      }
+      .step-title {
+        font-size: 19px;
+        font-weight: 900;
+        color: var(--blue-deep);
+        margin-bottom: 6px;
+      }
+      .step-desc {
+        font-size: 15px;
+        color: var(--gray-text);
+        line-height: 1.6;
+      }
+
+      /* ===== FINAL CTA ===== */
+      .final-cta {
+        background: linear-gradient(145deg, var(--blue-deep), var(--blue-mid));
+        text-align: center;
+        padding: 80px 20px;
+        color: white;
+      }
+      .final-cta h2 {
+        font-size: clamp(28px, 6vw, 52px);
+        font-weight: 900;
+        margin-bottom: 16px;
+        line-height: 1.2;
+      }
+      .final-cta p {
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 44px;
+      }
+      .final-btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+      }
+      .btn-call {
+        background: white;
+        color: var(--blue-deep);
+        padding: 18px 36px;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: 900;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s;
+      }
+      .btn-call:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+      }
+      .reassurance {
+        margin-top: 28px;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      /* ===== CONTACT FORM ===== */
+      .contact-section {
+        background: var(--gray-light);
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: start;
+      }
+      @media (max-width: 700px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .contact-form {
+        background: white;
+        border-radius: var(--radius-lg);
+        padding: 40px;
+        box-shadow: var(--shadow-lg);
+      }
+      .form-title {
+        font-size: 22px;
+        font-weight: 900;
+        color: var(--blue-deep);
+        margin-bottom: 28px;
+      }
+      .form-group {
+        margin-bottom: 18px;
+      }
+      .form-group label {
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--blue-deep);
+        margin-bottom: 8px;
+      }
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 14px 16px;
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        font-family: "Cairo", sans-serif;
+        font-size: 15px;
+        color: var(--blue-deep);
+        outline: none;
+        transition: border 0.2s;
+        direction: rtl;
+      }
+      .form-group input:focus,
+      .form-group select:focus {
+        border-color: var(--blue-bright);
+      }
+      .btn-submit {
+        width: 100%;
+        background: linear-gradient(
+          135deg,
+          var(--blue-bright),
+          var(--blue-mid)
+        );
+        color: white;
+        padding: 16px;
+        border-radius: 50px;
+        font-size: 17px;
+        font-weight: 900;
+        border: none;
+        cursor: pointer;
+        font-family: "Cairo", sans-serif;
+        box-shadow: var(--shadow-btn);
+        transition: all 0.2s;
+      }
+      .btn-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px rgba(30, 111, 217, 0.5);
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .contact-card {
+        background: white;
+        border-radius: var(--radius);
+        padding: 24px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        box-shadow: 0 4px 20px rgba(10, 37, 64, 0.07);
+        text-decoration: none;
+        color: var(--blue-deep);
+        transition: all 0.2s;
+      }
+      .contact-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-lg);
+      }
+      .contact-card-icon {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        flex-shrink: 0;
+      }
+      .cc-blue {
+        background: var(--blue-light);
+      }
+      .cc-green {
+        background: #e8f9ef;
+      }
+      .contact-card-text {
+      }
+      .cc-label {
+        font-size: 13px;
+        color: var(--gray-text);
+        margin-bottom: 4px;
+      }
+      .cc-value {
+        font-size: 18px;
+        font-weight: 900;
+      }
+
+      .map-placeholder {
+        background: linear-gradient(135deg, var(--blue-light), #dbeeff);
+        border-radius: var(--radius);
+        padding: 40px;
+        text-align: center;
+        border: 2px dashed #b8d4f8;
+        color: var(--blue-mid);
+        font-weight: 700;
+        font-size: 16px;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: var(--blue-deep);
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        padding: 30px 20px;
+        font-size: 14px;
+      }
+      footer strong {
+        color: var(--gold);
+      }
+
+      /* ===== CTA BETWEEN SECTIONS ===== */
+      .mid-cta {
+        background: var(--blue-bright);
+        text-align: center;
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+      .mid-cta p {
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .mid-cta-btns {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      /* ===== MOBILE ===== */
+      @media (max-width: 600px) {
+        .sticky-bar {
+          padding: 8px 14px;
+        }
+        .sticky-logo {
+          font-size: 16px;
+        }
+        .btn-call-sticky,
+        .btn-wa-sticky {
+          padding: 7px 12px;
+          font-size: 12px;
+        }
+        section {
+          padding: 60px 16px;
+        }
+        .hero {
+          padding: 90px 16px 60px;
+        }
+        .wa-float {
+          bottom: 80px;
+          left: 16px;
+          padding: 12px 16px;
+          font-size: 14px;
+        }
+        .contact-form {
+          padding: 26px 20px;
+        }
+      }
+
+      /* ===== ANIMATIONS ON SCROLL ===== */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating WhatsApp -->
+    <a
+      href="https://wa.me/966552979469?text=السلام عليكم، أريد حجز خدمة مكيفات"
+      class="wa-float"
+      target="_blank"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+        />
+        <path
+          d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.127 1.535 5.858L0 24l6.335-1.518A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.65-.507-5.17-1.392l-.37-.22-3.76.902.938-3.666-.242-.377A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"
+        />
+      </svg>
+      واتساب مباشر
+    </a>
+
+    <!-- Sticky Header -->
+    <header class="sticky-bar">
+      <div class="sticky-logo">❄️ <span>الوكيل</span> للمكيفات</div>
+      <div class="sticky-actions">
+        <a href="tel:+966552979469" class="btn-call-sticky">📞 اتصل الآن</a>
+        <a
+          href="https://wa.me/966552979469"
+          class="btn-wa-sticky"
+          target="_blank"
+          >واتساب</a
+        >
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-badge">⚡ خدمة سريعة في نفس اليوم</div>
+      <h1 class="hero-brand">
+        الوكيل<br /><span class="gold">خدمات المكيفات</span>
+      </h1>
+      <p class="hero-sub">
+        مكيفك خربان؟ نوصلك ونصلحه في نفس اليوم 🔧❄️<br />فنيين محترفين – استجابة
+        سريعة – أسعار واضحة بدون مفاجآت
+      </p>
+
+      <div class="trust-badges">
+        <div class="badge-item">
+          <span class="icon">⚡</span> خدمة خلال 60 دقيقة
+        </div>
+        <div class="badge-item">
+          <span class="icon">🛡️</span> ضمان على الإصلاح
+        </div>
+        <div class="badge-item"><span class="icon">🕐</span> متوفر 24 ساعة</div>
+        <div class="badge-item">
+          <span class="icon">📍</span> كل مناطق السعودية
+        </div>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="tel:+966552979469" class="btn-primary">📞 احجز فني الآن</a>
+        <a
+          href="https://wa.me/966552979469?text=السلام عليكم، أريد حجز خدمة مكيفات"
+          class="btn-wa"
+          target="_blank"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+            />
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.127 1.535 5.858L0 24l6.335-1.518A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.65-.507-5.17-1.392l-.37-.22-3.76.902.938-3.666-.242-.377A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"
+            />
+          </svg>
+          واتساب مباشر
+        </a>
+      </div>
+
+      <div class="urgency-line">
+        <div class="urgency-dot"></div>
+        عدد محدود من الطلبات اليومية لضمان السرعة — احجز الآن!
+      </div>
+    </section>
+
+    <!-- PROBLEMS -->
+    <section class="problems-section">
+      <div class="container">
+        <h2 class="section-title reveal">هل تعاني من إحدى هذه المشاكل؟</h2>
+        <p class="section-sub reveal">
+          لا تعاني في الحر — نحل مشكلتك من أول زيارة
+        </p>
+        <div class="problems-grid">
+          <div class="problem-card reveal">
+            <div class="problem-icon">🌡️</div>
+            <div class="problem-text">المكيف يطلع هواء حار بدل بارد؟</div>
+          </div>
+          <div class="problem-card reveal">
+            <div class="problem-icon">💧</div>
+            <div class="problem-text">صوت مزعج أو تسريب ماء من المكيف؟</div>
+          </div>
+          <div class="problem-card reveal">
+            <div class="problem-icon">🔧</div>
+            <div class="problem-text">تحتاج تركيب مكيف جديد بسرعة؟</div>
+          </div>
+          <div class="problem-card reveal">
+            <div class="problem-icon">🚚</div>
+            <div class="problem-text">نقل المكيف بدون تخريب في الجدران؟</div>
+          </div>
+        </div>
+        <div class="solve-banner reveal">
+          👉 نحل المشكلة من أول زيارة — مضمون 100%
+        </div>
+      </div>
+    </section>
+
+    <!-- MID CTA 1 -->
+    <div class="mid-cta">
+      <p>تواصل معنا الآن وأبرد اليوم 🌬️</p>
+      <div class="mid-cta-btns">
+        <a href="tel:+966552979469" class="btn-call">📞 اتصل الآن</a>
+        <a href="https://wa.me/966552979469" class="btn-wa" target="_blank"
+          >واتساب فوري</a
+        >
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section id="services" style="background: white">
+      <div class="container">
+        <h2 class="section-title reveal">خدماتنا المتخصصة</h2>
+        <p class="section-sub reveal">
+          كل ما يحتاجه مكيفك في مكان واحد — بجودة عالية وأسعار شفافة
+        </p>
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <span class="service-emoji">🔌</span>
+            <div class="service-name">تركيب مكيفات</div>
+            <div class="service-benefit">
+              تركيب احترافي بدون أخطاء، مع ضمان على العمل لراحة بالك
+            </div>
+            <a
+              href="https://wa.me/966552979469?text=أريد تركيب مكيف"
+              class="service-cta-link"
+              >احجز الآن ←</a
+            >
+          </div>
+          <div class="service-card reveal">
+            <span class="service-emoji">🔩</span>
+            <div class="service-name">صيانة وإصلاح</div>
+            <div class="service-benefit">
+              نصلح المشكلة من أول مرة — فنيين خبرة أكثر من 10 سنوات
+            </div>
+            <a
+              href="https://wa.me/966552979469?text=أريد صيانة مكيف"
+              class="service-cta-link"
+              >احجز الآن ←</a
+            >
+          </div>
+          <div class="service-card reveal">
+            <span class="service-emoji">🚛</span>
+            <div class="service-name">فك ونقل المكيفات</div>
+            <div class="service-benefit">
+              نقل آمن بدون أي تلف — نفك ونركب في موقعك الجديد
+            </div>
+            <a
+              href="https://wa.me/966552979469?text=أريد نقل مكيف"
+              class="service-cta-link"
+              >احجز الآن ←</a
+            >
+          </div>
+          <div class="service-card reveal">
+            <span class="service-emoji">🌿</span>
+            <div class="service-name">تنظيف المكيفات</div>
+            <div class="service-benefit">
+              هواء أنظف وتبريد أقوى — تنظيف عميق يزيل الجراثيم والغبار
+            </div>
+            <a
+              href="https://wa.me/966552979469?text=أريد تنظيف مكيف"
+              class="service-cta-link"
+              >احجز الآن ←</a
+            >
+          </div>
+          <div
+            class="service-card reveal"
+            style="border-top-color: var(--red-hot)"
+          >
+            <span class="service-emoji">🚨</span>
+            <div class="service-name">طوارئ 24/7</div>
+            <div class="service-benefit">
+              مكيفك خربان في الليل؟ نحن هنا دائماً — استجابة في أقل من 60 دقيقة
+            </div>
+            <a
+              href="tel:+966552979469"
+              class="service-cta-link"
+              style="color: var(--red-hot); border-color: var(--red-hot)"
+              >اتصل الآن ←</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STATS -->
+    <section class="trust-section">
+      <div class="container">
+        <h2 class="section-title reveal">لماذا يثق بنا الآلاف؟</h2>
+        <p class="section-sub reveal">أرقام تتحدث عن تجربتنا وثقة عملائنا</p>
+        <div class="trust-grid">
+          <div class="trust-item reveal">
+            <div class="trust-number">+10</div>
+            <div class="trust-label">سنوات خبرة في المكيفات</div>
+          </div>
+          <div class="trust-item reveal">
+            <div class="trust-number">+5K</div>
+            <div class="trust-label">عميل سعيد في المملكة</div>
+          </div>
+          <div class="trust-item reveal">
+            <div class="trust-number">60</div>
+            <div class="trust-label">دقيقة وقت الاستجابة</div>
+          </div>
+          <div class="trust-item reveal">
+            <div class="trust-number">24/7</div>
+            <div class="trust-label">خدمة طوارئ مستمرة</div>
+          </div>
+        </div>
+        <div style="margin-top: 40px; text-align: center">
+          <a
+            href="tel:+966552979469"
+            class="btn-primary"
+            style="display: inline-flex"
+            >📞 احجز الآن</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section">
+      <div class="container">
+        <h2 class="section-title reveal">ماذا قال عملاؤنا؟</h2>
+        <p class="section-sub reveal">
+          تقييمات حقيقية من عملاء في مدن مختلفة بالمملكة
+        </p>
+        <div class="testimonials-grid">
+          <div class="testimonial-card reveal">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "جاني الفني خلال ساعة، والمكيف صار يبرد مثل الجديد. خدمة ما
+              توقعتها بهالسرعة 🔥"
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">م</div>
+              <div>
+                <div class="author-name">محمد العتيبي</div>
+                <div class="author-city">الرياض</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "خدمة ممتازة وسعرهم واضح بدون لف ودوران. قالولي الثمن قبل ما
+              يبدأون الشغل. هذا اللي أحتاجه"
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">أ</div>
+              <div>
+                <div class="author-name">أحمد القحطاني</div>
+                <div class="author-city">جدة</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "نقلوا ثلاث مكيفات من بيتنا القديم للجديد بدون أي مشكلة. محترفين
+              ومرتبين والله"
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">ف</div>
+              <div>
+                <div class="author-name">فهد الشمري</div>
+                <div class="author-city">الدمام</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFER -->
+    <section class="offer-section">
+      <div class="container">
+        <h2 class="section-title reveal">🎁 عرض خاص لأول طلب</h2>
+        <p class="section-sub reveal">
+          لفترة محدودة — احجز الآن واستفد من العروض
+        </p>
+
+        <div class="countdown-bar reveal">
+          <span class="countdown-pulse">🔴</span>
+          العرض لفترة محدودة — لا تفوت الفرصة!
+        </div>
+
+        <div class="offer-grid">
+          <div class="offer-card reveal">
+            <span class="offer-icon">💰</span>
+            <div class="offer-title">
+              خصم <span class="offer-highlight">20%</span>
+            </div>
+            <div class="offer-desc">
+              على أول طلب لكل عميل جديد — الخصم يطبق تلقائياً
+            </div>
+          </div>
+          <div class="offer-card reveal">
+            <span class="offer-icon">🔍</span>
+            <div class="offer-title">كشف مجاني</div>
+            <div class="offer-desc">
+              كشف فني سريع بدون رسوم عند تنفيذ الخدمة
+            </div>
+          </div>
+          <div class="offer-card reveal">
+            <span class="offer-icon">🛡️</span>
+            <div class="offer-title">ضمان على الشغل</div>
+            <div class="offer-desc">
+              ضمان كامل على جودة الإصلاح والتركيب — راحة بالك مضمونة
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 10px">
+          <a
+            href="https://wa.me/966552979469?text=أريد الاستفادة من العرض الخاص"
+            class="btn-wa"
+            style="display: inline-flex"
+            target="_blank"
+            >احجز الآن واستفد من العرض 🎁</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section">
+      <div class="container">
+        <h2 class="section-title reveal">كيف تطلب الخدمة؟</h2>
+        <p class="section-sub reveal">ثلاث خطوات بسيطة وتبرد في نفس اليوم</p>
+        <div class="steps-flow">
+          <div class="step-item reveal">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <div class="step-title">تواصل معنا عبر واتساب أو الاتصال</div>
+              <div class="step-desc">
+                اتصل أو راسلنا على واتساب وأخبرنا بمشكلتك — نرد خلال دقائق
+              </div>
+            </div>
+          </div>
+          <div class="step-item reveal">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <div class="step-title">نحدد موعد فوري في نفس اليوم</div>
+              <div class="step-desc">
+                نرتب معك أقرب وقت مناسب — فنيين جاهزين طوال اليوم
+              </div>
+            </div>
+          </div>
+          <div class="step-item reveal">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <div class="step-title">الفني يوصلك ويحل المشكلة</div>
+              <div class="step-desc">
+                فنيك يوصل مجهز بالأدوات، يكشف المشكلة، ويصلحها من أول مرة
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MID CTA 2 -->
+    <div class="mid-cta">
+      <p>جاهزين لخدمتك الآن ❄️ لا تتأخر</p>
+      <div class="mid-cta-btns">
+        <a href="tel:+966552979469" class="btn-call">📞 اتصل الآن</a>
+        <a href="https://wa.me/966552979469" class="btn-wa" target="_blank"
+          >واتساب فوري</a
+        >
+      </div>
+    </div>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+      <div class="container">
+        <h2 class="reveal">لا تخلي حرارة المكيف<br />تعطل يومك ☀️</h2>
+        <p class="reveal">
+          فنيينا جاهزين الآن — استجابة خلال 60 دقيقة في معظم المناطق
+        </p>
+        <div class="final-btns reveal">
+          <a href="tel:+966552979469" class="btn-call">📞 اتصل الآن</a>
+          <a
+            href="https://wa.me/966552979469?text=السلام عليكم، أريد حجز خدمة مكيفات"
+            class="btn-wa"
+            target="_blank"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+              />
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.127 1.535 5.858L0 24l6.335-1.518A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.65-.507-5.17-1.392l-.37-.22-3.76.902.938-3.666-.242-.377A9.955 9.955 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"
+              />
+            </svg>
+            واتساب فوري
+          </a>
+        </div>
+        <div class="reassurance reveal">
+          ✅ نرد عليك خلال دقائق — خدمة سريعة واحترافية
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <h2 class="section-title reveal">تواصل معنا مباشرة</h2>
+        <p class="section-sub reveal">اترك بياناتك ونتصل بك فوراً</p>
+        <div class="contact-grid">
+          <div class="contact-form reveal">
+            <div class="form-title">📋 طلب خدمة سريع</div>
+            <div class="form-group">
+              <label>الاسم</label>
+              <input type="text" placeholder="اكتب اسمك هنا" />
+            </div>
+            <div class="form-group">
+              <label>رقم الجوال</label>
+              <input type="tel" placeholder="05XXXXXXXX" />
+            </div>
+            <div class="form-group">
+              <label>نوع الخدمة</label>
+              <select>
+                <option value="">اختر الخدمة المطلوبة</option>
+                <option>تركيب مكيف جديد</option>
+                <option>صيانة وإصلاح</option>
+                <option>فك ونقل المكيف</option>
+                <option>تنظيف المكيف</option>
+                <option>خدمة طوارئ</option>
+              </select>
+            </div>
+            <button class="btn-submit" onclick="handleSubmit()">
+              أرسل الطلب — نتصل بك فوراً ✅
+            </button>
+          </div>
+
+          <div class="contact-info">
+            <a href="tel:+966552979469" class="contact-card reveal">
+              <div class="contact-card-icon cc-blue">📞</div>
+              <div class="contact-card-text">
+                <div class="cc-label">اتصل بنا مباشرة</div>
+                <div class="cc-value">+966552979469</div>
+              </div>
+            </a>
+            <a
+              href="https://wa.me/966552979469"
+              class="contact-card reveal"
+              target="_blank"
+            >
+              <div class="contact-card-icon cc-green">💬</div>
+              <div class="contact-card-text">
+                <div class="cc-label">راسلنا على واتساب</div>
+                <div class="cc-value">ردود فورية 24/7</div>
+              </div>
+            </a>
+            <div class="map-placeholder reveal">
+              🗺️ نغطي جميع مناطق المملكة العربية السعودية<br /><br />
+              الرياض • جدة • الدمام • مكة المكرمة<br />المدينة المنورة • أبها •
+              تبوك وأكثر
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>
+        © 2025 <strong>الوكيل – خدمات المكيفات</strong> | جميع الحقوق محفوظة
+      </p>
+      <p style="margin-top: 8px">
+        خدمة 24/7 في جميع مناطق المملكة العربية السعودية ❄️
+      </p>
+    </footer>
+
+    <script>
+      // Scroll reveal
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+      reveals.forEach((el) => observer.observe(el));
+
+      // Staggered children in grids
+      document
+        .querySelectorAll(
+          ".problems-grid, .services-grid, .trust-grid, .testimonials-grid, .offer-grid",
+        )
+        .forEach((grid) => {
+          grid.querySelectorAll(".reveal").forEach((card, i) => {
+            card.style.transitionDelay = `${i * 0.1}s`;
+          });
+        });
+
+      function handleSubmit() {
+        const name = document.querySelector(
+          'input[placeholder="اكتب اسمك هنا"]',
+        ).value;
+        const phone = document.querySelector(
+          'input[placeholder="05XXXXXXXX"]',
+        ).value;
+        const service = document.querySelector("select").value;
+        if (!name || !phone) {
+          alert("يرجى إدخال الاسم ورقم الجوال");
+          return;
+        }
+        const msg = `السلام عليكم، اسمي ${name}، رقمي ${phone}، أريد: ${service || "خدمة مكيفات"}`;
+        window.open(
+          `https://wa.me/966552979469?text=${encodeURIComponent(msg)}`,
+          "_blank",
+        );
+      }
+    </script>
+  </body>
+</html>
